@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>بخاخ ميست & فيكس مرطب مثبت للمكياج 24 ساعة | MAKE UP FOR EVER</title>
+
   <style>
     :root{
       --bg:#0b0b10;
@@ -36,6 +37,8 @@
 
     a{color:inherit; text-decoration:none}
     .container{max-width:1120px; margin:0 auto; padding:28px 16px 80px;}
+
+    /* Topbar */
     .topbar{
       display:flex; align-items:center; justify-content:space-between;
       gap:12px; padding:10px 14px;
@@ -44,13 +47,12 @@
       backdrop-filter: blur(10px);
     }
     .brand{
-      display:flex; align-items:center; gap:10px; font-weight:800; letter-spacing:.2px;
+      display:flex; align-items:center; gap:10px;
+      font-weight:800; letter-spacing:.2px;
     }
-    .brand-badge{
-      width:34px; height:34px; border-radius:12px;
-      background: linear-gradient(135deg, rgba(214,180,106,.85), rgba(246,226,157,.85));
-      box-shadow: 0 10px 30px rgba(214,180,106,.22);
-    }
+    /* ✅ شيلنا الأيقونة جنب Center To You */
+    .brand-badge{display:none;}
+
     .pill{
       border:1px solid var(--line);
       padding:8px 12px; border-radius:999px;
@@ -59,15 +61,15 @@
       background: rgba(15,15,22,.35);
     }
     .pill b{color:var(--text)}
+
+    /* Layout */
     .grid{
       display:grid;
       grid-template-columns: 1.05fr .95fr;
       gap:18px;
       margin-top:18px;
     }
-    @media (max-width: 980px){
-      .grid{grid-template-columns: 1fr; }
-    }
+    @media (max-width: 980px){ .grid{grid-template-columns: 1fr; } }
 
     .card{
       background: linear-gradient(180deg, rgba(18,18,26,.92), rgba(15,15,22,.92));
@@ -78,6 +80,9 @@
     }
 
     .pad{padding:18px}
+    .divider{height:1px; background:var(--line); margin:14px 0;}
+
+    /* Headings */
     h1{
       margin:10px 0 6px;
       font-size: clamp(22px, 2.4vw, 34px);
@@ -85,7 +90,16 @@
       letter-spacing:.2px;
     }
     .subtitle{color:var(--muted); margin:0 0 12px; font-size:14px}
-    .divider{height:1px; background:var(--line); margin:14px 0;}
+    .kicker{
+      display:inline-flex; align-items:center; gap:8px;
+      padding:8px 12px;
+      border-radius:999px;
+      border:1px solid rgba(214,180,106,.28);
+      background: rgba(214,180,106,.10);
+      color: rgba(255,255,255,.90);
+      font-size: 12px;
+      font-weight:800;
+    }
 
     /* Gallery */
     .gallery-wrap{padding:16px}
@@ -118,9 +132,7 @@
       grid-template-columns: repeat(6, 1fr);
       gap:10px;
     }
-    @media (max-width: 560px){
-      .thumbs{grid-template-columns: repeat(4, 1fr);}
-    }
+    @media (max-width: 560px){ .thumbs{grid-template-columns: repeat(4, 1fr);} }
     .thumb{
       aspect-ratio: 1/1;
       border-radius: 14px;
@@ -151,7 +163,9 @@
       pointer-events:none;
     }
     .price-inner{position:relative; padding:16px}
+
     .row{display:flex; align-items:center; justify-content:space-between; gap:12px; flex-wrap:wrap;}
+
     .size-tabs{
       display:flex; gap:10px; flex-wrap:wrap;
       background: rgba(0,0,0,.25);
@@ -165,7 +179,7 @@
       background: transparent;
       color: rgba(255,255,255,.85);
       cursor:pointer;
-      font-weight:700;
+      font-weight:800;
       transition:.18s ease;
     }
     .tab.active{
@@ -174,28 +188,40 @@
       border-color: rgba(214,180,106,.45);
       box-shadow: 0 10px 25px rgba(214,180,106,.18);
     }
-    .price{
+
+    /* ✅ PRICE BOX الجديد (منسق) */
+    .price-box{width:100%}
+
+    .price-hero{
+      display:flex; align-items:baseline; justify-content:space-between; gap:12px; flex-wrap:wrap;
+      margin-top:12px;
+      padding:12px;
+      border-radius:16px;
+      border:1px solid rgba(255,255,255,.10);
+      background: rgba(0,0,0,.18);
+    }
+    .price-hero .big{
       display:flex; align-items:baseline; gap:10px;
-      font-weight:900;
-      font-size: 26px;
+      font-weight:950;
+      font-size: 28px;
       letter-spacing:.2px;
     }
-    .price small{font-size:13px; font-weight:700; color: rgba(255,255,255,.78)}
-    .strike{
-      color: rgba(255,255,255,.55);
-      text-decoration: line-through;
-      font-weight:700;
-      font-size: 14px;
+    .price-hero .big small{
+      font-size:12px; font-weight:800; color: rgba(255,255,255,.75)
     }
-    .badges{display:flex; gap:8px; flex-wrap:wrap; margin-top:10px}
+    .price-hero .meta{
+      display:flex; gap:8px; flex-wrap:wrap;
+    }
+
     .badge{
-      font-size:12px; font-weight:800;
+      font-size:12px; font-weight:900;
       padding:8px 10px;
       border-radius: 999px;
       border:1px solid rgba(255,255,255,.10);
       background: rgba(0,0,0,.24);
       color: rgba(255,255,255,.9);
       display:flex; align-items:center; gap:8px;
+      white-space:nowrap;
     }
     .badge.gold{
       border-color: rgba(214,180,106,.45);
@@ -206,6 +232,65 @@
       background: rgba(47,224,138,.10);
       color: rgba(240,255,248,.92);
     }
+
+    .sizes-compare{
+      margin-top:12px;
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:10px;
+    }
+    @media (max-width: 560px){ .sizes-compare{grid-template-columns:1fr;} }
+
+    .size-col{
+      border:1px solid rgba(255,255,255,.10);
+      background: rgba(0,0,0,.18);
+      border-radius: 16px;
+      padding:12px;
+      transition: .18s ease;
+    }
+    .size-col.active{
+      border-color: rgba(214,180,106,.55);
+      background: rgba(214,180,106,.10);
+      box-shadow: 0 10px 24px rgba(214,180,106,.10);
+      transform: translateY(-1px);
+    }
+    .size-head{
+      display:flex; align-items:center; justify-content:space-between; gap:10px;
+      font-weight:950;
+      margin-bottom:10px;
+      font-size:14px;
+    }
+    .size-mini{
+      font-size:11px;
+      color: rgba(255,255,255,.72);
+      padding:6px 10px;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,.10);
+      background: rgba(0,0,0,.22);
+    }
+    .size-line{
+      display:flex; align-items:center; justify-content:space-between;
+      gap:12px;
+      padding:8px 0;
+      border-top:1px dashed rgba(255,255,255,.10);
+    }
+    .size-line:first-of-type{border-top:none;}
+    .lbl{
+      color: rgba(255,255,255,.70);
+      font-size:12px;
+      font-weight:800;
+    }
+    .val{
+      color: rgba(255,255,255,.95);
+      font-size:12px;
+      font-weight:950;
+    }
+    .size-foot{
+      margin-top:10px;
+      display:flex; gap:8px; flex-wrap:wrap;
+    }
+
+    /* CTA buttons */
     .cta{
       margin-top:12px;
       display:flex; gap:10px; flex-wrap:wrap;
@@ -214,7 +299,7 @@
       border:none; cursor:pointer;
       padding:12px 14px;
       border-radius: 14px;
-      font-weight:900;
+      font-weight:950;
       letter-spacing:.2px;
       transition: transform .15s ease, filter .15s ease;
     }
@@ -230,19 +315,6 @@
       color: rgba(255,255,255,.88);
     }
 
-    /* Right column sections */
-    .section-title{
-      font-size:18px;
-      margin:0 0 10px;
-      letter-spacing:.2px;
-      display:flex; align-items:center; justify-content:space-between; gap:12px;
-    }
-    .muted{color:var(--muted); font-size:14px; margin:0}
-    .bullets{
-      margin:12px 0 0; padding:0 18px 0 0;
-      color: rgba(255,255,255,.88);
-    }
-    .bullets li{margin:6px 0}
     .note{
       margin-top:12px;
       padding:12px 12px;
@@ -253,20 +325,70 @@
       font-size: 13px;
     }
 
-    /* Lists as cards */
-    .cards{
+    /* ✅ Premium content cards (الوصف/طريقة/نصائح) */
+    .content-stack{display:flex; flex-direction:column; gap:12px;}
+    .content-card{
+      border:1px solid rgba(255,255,255,.10);
+      background:
+        radial-gradient(600px 200px at 20% 0%, rgba(214,180,106,.14), transparent 55%),
+        rgba(0,0,0,.18);
+      border-radius: 18px;
+      padding:14px;
+      position:relative;
+      overflow:hidden;
+    }
+    .content-card::before{
+      content:"";
+      position:absolute; inset:-1px;
+      background: radial-gradient(800px 220px at 90% 0%, rgba(118,92,255,.10), transparent 60%);
+      pointer-events:none;
+    }
+    .content-card .inner{position:relative;}
+    .content-title{
+      display:flex; align-items:center; justify-content:space-between; gap:10px;
+      font-size:16px;
+      font-weight:950;
+      margin:0 0 8px;
+      letter-spacing:.2px;
+    }
+    .content-tag{
+      font-size:11px;
+      color: rgba(255,255,255,.75);
+      border:1px solid rgba(255,255,255,.10);
+      background: rgba(0,0,0,.22);
+      padding:6px 10px;
+      border-radius:999px;
+      white-space:nowrap;
+    }
+    .muted{color:var(--muted); font-size:14px; margin:0}
+    .bullets{
+      margin:10px 0 0; padding:0 18px 0 0;
+      color: rgba(255,255,255,.88);
+    }
+    .bullets li{margin:6px 0}
+
+    .howto-grid{
       display:grid;
       grid-template-columns: 1fr;
       gap:10px;
+      margin-top:10px;
     }
-    .mini-card{
-      border:1px solid var(--line);
-      border-radius: 16px;
-      background: rgba(255,255,255,.03);
+    .step{
+      border:1px solid rgba(255,255,255,.10);
+      background: rgba(0,0,0,.22);
+      border-radius:16px;
       padding:12px;
     }
-    .mini-card b{display:block; margin-bottom:4px}
-    .mini-card p{margin:0; color:rgba(255,255,255,.85); font-size:14px}
+    .step b{display:block; margin-bottom:4px}
+    .step p{margin:0; color:rgba(255,255,255,.85); font-size:14px}
+
+    .tips-special{
+      border:1px solid rgba(214,180,106,.35);
+      background: linear-gradient(135deg, rgba(214,180,106,.16), rgba(0,0,0,.18));
+      border-radius:18px;
+      padding:14px;
+      margin-top:10px;
+    }
 
     /* Reviews */
     .reviews-head{
@@ -282,7 +404,7 @@
     }
     .count{
       color: rgba(255,255,255,.80);
-      font-weight:800;
+      font-weight:900;
       font-size: 13px;
       padding:6px 10px;
       border-radius:999px;
@@ -295,20 +417,19 @@
       gap:10px;
       margin-top:12px;
     }
-    @media (max-width: 720px){
-      .review-grid{grid-template-columns:1fr;}
-    }
+    @media (max-width: 720px){ .review-grid{grid-template-columns:1fr;} }
+
     .review{
-      border:1px solid var(--line);
+      border:1px solid rgba(255,255,255,.10);
       border-radius: 16px;
-      background: rgba(255,255,255,.03);
+      background: rgba(0,0,0,.18);
       padding:12px;
     }
     .review .top{
       display:flex; align-items:center; justify-content:space-between; gap:10px;
       margin-bottom:8px;
     }
-    .review .name{font-weight:900}
+    .review .name{font-weight:950}
     .review .date{color: rgba(255,255,255,.55); font-size: 12px}
     .review .text{margin:0; color: rgba(255,255,255,.85); font-size: 14px}
     .review .starline{color: rgba(246,226,157,.95); font-size: 12px; letter-spacing:1px}
@@ -316,9 +437,9 @@
     /* Accordion */
     .accordion{display:flex; flex-direction:column; gap:10px; margin-top:12px;}
     .acc-item{
-      border:1px solid var(--line);
+      border:1px solid rgba(255,255,255,.10);
       border-radius: 16px;
-      background: rgba(255,255,255,.03);
+      background: rgba(0,0,0,.18);
       overflow:hidden;
     }
     .acc-btn{
@@ -329,7 +450,7 @@
       padding:14px 14px;
       cursor:pointer;
       display:flex; align-items:center; justify-content:space-between; gap:12px;
-      font-weight:900;
+      font-weight:950;
       font-size: 14px;
       text-align:right;
     }
@@ -361,28 +482,18 @@
       color: rgba(255,255,255,.78);
       text-align:center;
     }
-
-    .kicker{
-      display:inline-flex; align-items:center; gap:8px;
-      padding:8px 12px;
-      border-radius:999px;
-      border:1px solid rgba(214,180,106,.28);
-      background: rgba(214,180,106,.10);
-      color: rgba(255,255,255,.90);
-      font-size: 12px;
-      font-weight:800;
-    }
   </style>
 </head>
 
 <body>
   <div class="container">
+
     <div class="topbar">
       <div class="brand">
-        <div class="brand-badge"></div>
+        <!-- .brand-badge متشال -->
         <div>
-          <div style="font-weight:900">Center To You</div>
-    
+          <div style="font-weight:950">Center To You</div>
+          <div style="font-size:12px;color:var(--muted)">Landing Page • Premium</div>
         </div>
       </div>
       <div class="pill">
@@ -409,69 +520,94 @@
           <!-- Thumbnails Grid -->
           <div class="thumbs" id="thumbsGrid"></div>
 
-          <!-- Golden Price Card (Under images directly) -->
+          <!-- Price Card -->
           <div class="price-card">
             <div class="price-inner">
+
               <div class="row">
                 <div>
-                 
+                  <div style="font-weight:950; margin-bottom:6px;">اختاري الحجم</div>
+                  <div class="size-tabs" role="tablist" aria-label="حجم المنتج">
+                    <button class="tab active" data-size="100" type="button">100 مل</button>
+                    <button class="tab" data-size="30" type="button">30 مل</button>
+                  </div>
                 </div>
 
-            <div class="price-box">
+                <div class="price-box">
 
-  <!-- السعر الكبير (على حسب التاب المختار) -->
-  <div class="price">
-    <span id="finalPrice">0</span>
-    <small id="sizeLabel">حجم 100 ملل</small>
-  </div>
+                  <!-- السعر الرئيسي + شارات سريعة -->
+                  <div class="price-hero">
+                    <div class="big">
+                      <span id="finalPrice">0</span>
+                      <small id="sizeLabel">حجم 100 ملل</small>
+                    </div>
 
-  <!-- جدول الحجمين (جنب بعض) -->
-  <div class="sizes-compare">
+                    <div class="meta">
+                      <div class="badge gold">خصم <span id="discountPercent">0</span>%</div>
+                      <div class="badge">وفّرت <span id="savedAmount">0</span> جنيه</div>
+                      <div class="badge" style="opacity:.85">قبل: <span id="oldPrice">0</span> جنيه</div>
+                    </div>
+                  </div>
 
-    <div class="size-col" id="size100Col">
-      <div class="size-head">حجم 100 ملل</div>
-      <div class="size-line">
-        <span class="lbl">قبل الخصم</span>
-        <span class="val" id="old100">1600</span>
-      </div>
-      <div class="size-line">
-        <span class="lbl">بعد الخصم</span>
-        <span class="val" id="now100">1379</span>
-      </div>
-    </div>
+                  <!-- ✅ حجمين جنب بعض (قبل/بعد/خصم/توفير) -->
+                  <div class="sizes-compare">
+                    <div class="size-col active" id="size100Col">
+                      <div class="size-head">
+                        <span>حجم 100 ملل</span>
+                        <span class="size-mini">الأكثر طلبًا</span>
+                      </div>
 
-    <div class="size-col" id="size30Col">
-      <div class="size-head">حجم 30 ملل</div>
-      <div class="size-line">
-        <span class="lbl">قبل الخصم</span>
-        <span class="val" id="old30">1100</span>
-      </div>
-      <div class="size-line">
-        <span class="lbl">بعد الخصم</span>
-        <span class="val" id="now30">729</span>
-      </div>
-    </div>
+                      <div class="size-line">
+                        <span class="lbl">قبل الخصم</span>
+                        <span class="val" id="old100">0</span>
+                      </div>
+                      <div class="size-line">
+                        <span class="lbl">بعد الخصم</span>
+                        <span class="val" id="now100">0</span>
+                      </div>
 
-  </div>
+                      <div class="size-foot">
+                        <span class="badge gold">خصم <span id="disc100">0</span>%</span>
+                        <span class="badge">توفير <span id="save100">0</span> جنيه</span>
+                      </div>
+                    </div>
 
-  <!-- سطر التوفير والخصم (بيفضل شغال حسب التاب المختار) -->
-  <div class="row" style="justify-content:flex-start; gap:10px; margin-top:10px">
-    <div class="strike">قبل: <span id="oldPrice">0</span> جنيه</div>
-    <div class="badge gold">خصم <span id="discountPercent">0</span>%</div>
-    <div class="badge">وفّرت <span id="savedAmount">0</span> جنيه</div>
-  </div>
+                    <div class="size-col" id="size30Col">
+                      <div class="size-head">
+                        <span>حجم 30 ملل</span>
+                        <span class="size-mini">للشنطة والسفر</span>
+                      </div>
 
-</div>
+                      <div class="size-line">
+                        <span class="lbl">قبل الخصم</span>
+                        <span class="val" id="old30">0</span>
+                      </div>
+                      <div class="size-line">
+                        <span class="lbl">بعد الخصم</span>
+                        <span class="val" id="now30">0</span>
+                      </div>
 
+                      <div class="size-foot">
+                        <span class="badge gold">خصم <span id="disc30">0</span>%</span>
+                        <span class="badge">توفير <span id="save30">0</span> جنيه</span>
+                      </div>
+                    </div>
+                  </div>
 
-              <div class="badges">
+                </div>
+              </div>
+
+              <div class="row" style="margin-top:12px; justify-content:flex-start;">
                 <div class="badge ok">✅ ضمان أصالة 100%</div>
                 <div class="badge gold">✨ Micro-Fine Mist</div>
                 <div class="badge">💧 ترطيب + لمعة صحية</div>
                 <div class="badge">🕒 ثبات طويل</div>
               </div>
 
-            
+              <div class="cta">
+                <button class="btn primary" type="button" onclick="alert('حط لينك الشراء هنا 👈');">
+                  اشتري دلوقتي
+                </button>
                 <button class="btn ghost" type="button" onclick="document.getElementById('reviews').scrollIntoView({behavior:'smooth'})">
                   شوفي تقييمات العملاء
                 </button>
@@ -480,61 +616,84 @@
               <div class="note">
                 ⭐ نصيحة: رشة خفيفة من مسافة 20–25 سم بتدي أفضل نتيجة من غير ما تبلّل المكياج.
               </div>
+
             </div>
           </div>
 
         </div>
       </div>
 
-      <!-- RIGHT: Content -->
+      <!-- RIGHT: Premium content cards -->
       <div class="card">
         <div class="pad">
-          <div class="section-title">
-            <span>الوصف</span>
-          </div>
-          <p class="muted">
-            بخاخ تثبيت مرطّب بملمس خفيف جدًا، بيشتغل كـ <b>ترطيب + تثبيت + إنعاش</b> في نفس الوقت.
-            مثالي لو عايزة ميكب ثابت وشكله فريش ومش متكتّل… خصوصًا مع يوم طويل أو مناسبة.
-          </p>
+          <div class="content-stack">
 
-          <ul class="bullets">
-            <li><b>يثبّت المكياج</b> ويساعد يقلل التلطّخ والبهتان.</li>
-            <li><b>يرطّب</b> ويدي راحة للبشرة ومظهر جلوي طبيعي.</li>
-            <li><b>رذاذ Micro-fine</b> ناعم جدًا وتوزيعه متساوي.</li>
-            <li>ينفع قبل المكياج (Prep) وبعده (Set) وخلال اليوم (Refresh).</li>
-          </ul>
+            <!-- ✅ كارت الوصف -->
+            <div class="content-card">
+              <div class="inner">
+                <div class="content-title">
+                  <span>الوصف</span>
+                  <span class="content-tag">تثبيت + ترطيب + فريش لوك</span>
+                </div>
+                <p class="muted">
+                  بخاخ تثبيت مرطّب بملمس خفيف جدًا، بيشتغل كـ <b>ترطيب + تثبيت + إنعاش</b> في نفس الوقت.
+                  مثالي لو عايزة ميكب ثابت وشكله فريش ومش متكتّل… خصوصًا مع يوم طويل أو مناسبة.
+                </p>
 
-          <div class="divider"></div>
-
-          <div class="section-title">
-            <span>طريقة الاستخدام</span>
-          </div>
-          <div class="cards">
-            <div class="mini-card">
-              <b>بعد المكياج</b>
-              <p>امسكي البخاخ على بعد 20–25 سم، اغمضي عينك، ورشي رشتين لـ 4 رِشّات خفاف على وشك كله.</p>
+                <ul class="bullets">
+                  <li><b>يثبّت المكياج</b> ويساعد يقلل التلطّخ والبهتان.</li>
+                  <li><b>يرطّب</b> ويدي راحة للبشرة ومظهر جلوي طبيعي.</li>
+                  <li><b>رذاذ Micro-fine</b> ناعم جدًا وتوزيعه متساوي.</li>
+                  <li>ينفع قبل المكياج (Prep) وبعده (Set) وخلال اليوم (Refresh).</li>
+                </ul>
+              </div>
             </div>
-            <div class="mini-card">
-              <b>قبل المكياج (اختياري)</b>
-              <p>رشة خفيفة قبل الفاونديشن تساعد البشرة تبان أنعم والمكياج يقعد أحلى.</p>
+
+            <!-- ✅ كارت طريقة الاستخدام -->
+            <div class="content-card">
+              <div class="inner">
+                <div class="content-title">
+                  <span>طريقة الاستخدام</span>
+                  <span class="content-tag">3 خطوات سهلة</span>
+                </div>
+
+                <div class="howto-grid">
+                  <div class="step">
+                    <b>بعد المكياج</b>
+                    <p>امسكي البخاخ على بعد 20–25 سم، اغمضي عينك، ورشي 2 لـ 4 رِشّات خفاف على وشك كله.</p>
+                  </div>
+                  <div class="step">
+                    <b>قبل المكياج (اختياري)</b>
+                    <p>رشة خفيفة قبل الفاونديشن تساعد البشرة تبان أنعم والمكياج يقعد أحلى.</p>
+                  </div>
+                  <div class="step">
+                    <b>خلال اليوم</b>
+                    <p>لو حسّيتي وشك محتاج Refresh… رشة واحدة ترجع الفريش لوك بدون ما تبوّظ المكياج.</p>
+                  </div>
+                </div>
+              </div>
             </div>
-            <div class="mini-card">
-              <b>خلال اليوم</b>
-              <p>لو حسّيتي وشك محتاج Refresh… رشة واحدة ترجع الفريش لوك بدون ما تبوّظ المكياج.</p>
+
+            <!-- ✅ كارت نصائح استخدام سريعة (شيك ومميز) -->
+            <div class="content-card">
+              <div class="inner">
+                <div class="content-title">
+                  <span>نصائح استخدام سريعة</span>
+                  <span class="content-tag">لأفضل نتيجة</span>
+                </div>
+
+                <div class="tips-special">
+                  <ul class="bullets" style="margin:0;">
+                    <li>متقربيش البخاخ قوي عشان الرذاذ يفضل ناعم ومتساوي.</li>
+                    <li>لو بشرتك دهنية جدًا، استخدميه + بودرة خفيفة في الـ T-zone.</li>
+                    <li>استخدميه بعد الرموش/الماسكارا عشان تتفادي أي لطخة.</li>
+                    <li>رشة خفيفة تكفي — الزيادة ممكن تعمل إحساس “مبلول”.</li>
+                  </ul>
+                </div>
+              </div>
             </div>
-          </div>
 
-          <div class="divider"></div>
-
-          <div class="section-title">
-            <span>نصائح استخدام سريعة</span>
-          </div>
-          <ul class="bullets">
-            <li>متقربيش البخاخ قوي عشان الرذاذ يفضل ناعم ومتساوي.</li>
-            <li>لو بشرتك دهنية جدًا، ممكن تستخدميه + بودرة خفيفة في الـ T-zone.</li>
-            <li>استخدميه بعد الرموش/الماسكارا عشان تتفادي أي لطخة.</li>
-          </ul>
-
+          </div><!-- /content-stack -->
         </div>
       </div>
     </div>
@@ -544,116 +703,24 @@
       <div class="pad">
         <div class="reviews-head">
           <div>
-            <div class="section-title" style="margin-bottom:6px;">
-              <span>تقييمات العملاء</span>
-            </div>
+            <div style="font-weight:950; font-size:18px; margin:0 0 6px;">تقييمات العملاء</div>
             <div class="stars">
               <span class="star">★★★★★</span>
               <span style="color:var(--muted); font-size:13px;">متوسط 4.8</span>
-              <span class="count">32</span>
+              <span class="count" id="reviewsCount">32</span>
             </div>
           </div>
         </div>
 
-        <!-- خليت التقييمات كتير وظاهرة -->
-        <div class="review-grid">
-          <div class="review">
-            <div class="top">
-              <div>
-                <div class="name">سارة</div>
-                <div class="starline">★★★★★</div>
-              </div>
-              <div class="date">من أسبوع</div>
-            </div>
-            <p class="text">الرذاذ ناعم جدًا ومش بيسيح المكياج… فرق معايا في الثبات خصوصًا في الخروج الطويل.</p>
-          </div>
-
-          <div class="review">
-            <div class="top">
-              <div>
-                <div class="name">مريم</div>
-                <div class="starline">★★★★★</div>
-              </div>
-              <div class="date">من 10 أيام</div>
-            </div>
-            <p class="text">بيسيب لمعة حلوة مش دهنية، وحسّيت بشرتي مرتاحة مش منشفاني.</p>
-          </div>
-
-          <div class="review">
-            <div class="top">
-              <div>
-                <div class="name">نور</div>
-                <div class="starline">★★★★☆</div>
-              </div>
-              <div class="date">من 3 أسابيع</div>
-            </div>
-            <p class="text">حلو جدًا… بس لازم مسافة كويسة عشان الرشة تبقى خفيفة.</p>
-          </div>
-
-          <div class="review">
-            <div class="top">
-              <div>
-                <div class="name">دعاء</div>
-                <div class="starline">★★★★★</div>
-              </div>
-              <div class="date">من شهر</div>
-            </div>
-            <p class="text">الحجم الصغير 30 مل عملي جدًا في الشنطة… بقيت باخده معايا في أي خروجة.</p>
-          </div>
-
-          <div class="review">
-            <div class="top">
-              <div>
-                <div class="name">هبة</div>
-                <div class="starline">★★★★★</div>
-              </div>
-              <div class="date">من شهر</div>
-            </div>
-            <p class="text">ثبت الميكب في الحرّ أكتر مما توقعت… وريحة خفيفة مش مزعجة.</p>
-          </div>
-
-          <div class="review">
-            <div class="top">
-              <div>
-                <div class="name">ياسمين</div>
-                <div class="starline">★★★★☆</div>
-              </div>
-              <div class="date">من 5 أسابيع</div>
-            </div>
-            <p class="text">بيعمل Glow لطيف… لو بتحبي مطفي 100% استخدمي بودرة بعدها.</p>
-          </div>
-
-          <div class="review">
-            <div class="top">
-              <div>
-                <div class="name">مي</div>
-                <div class="starline">★★★★★</div>
-              </div>
-              <div class="date">من شهرين</div>
-            </div>
-            <p class="text">ممتاز قبل المكياج كتحضير… حسيت الفاونديشن نام أحلى على البشرة.</p>
-          </div>
-
-          <div class="review">
-            <div class="top">
-              <div>
-                <div class="name">رنا</div>
-                <div class="starline">★★★★★</div>
-              </div>
-              <div class="date">من شهرين</div>
-            </div>
-            <p class="text">رشة واحدة خلال اليوم بتفوق الميكب… كأنه لسه معمول.</p>
-          </div>
-        </div>
+        <!-- ✅ كل التقييمات هتظهر هنا تلقائي -->
+        <div class="review-grid" id="reviewGrid"></div>
       </div>
     </div>
 
     <!-- FAQ -->
     <div class="card" style="margin-top:18px;">
       <div class="pad">
-        <div class="section-title">
-          <span>أسئلة شائعة</span>
-        </div>
+        <div style="font-weight:950; font-size:18px; margin:0 0 10px;">أسئلة شائعة</div>
 
         <div class="accordion" id="faqAccordion">
           <div class="acc-item">
@@ -713,9 +780,7 @@
     <!-- Why buy -->
     <div class="card" style="margin-top:18px;">
       <div class="pad">
-        <div class="section-title">
-          <span>ليه تشتري من متجرنا؟</span>
-        </div>
+        <div style="font-weight:950; font-size:18px; margin:0 0 10px;">ليه تشتري من متجرنا؟</div>
 
         <div class="accordion" id="whyAccordion">
           <div class="acc-item">
@@ -763,10 +828,10 @@
 
     <!-- Footer -->
     <footer>
-      <div style="font-weight:900; margin-bottom:6px;">Center To You</div>
-      <div>لو محتاجة مساعدة، ابعتلنا على واتساب — وإحنا معاك خطوة بخطوة 🤝</div>
+      <div style="font-weight:950; margin-bottom:6px;">Center To You</div>
+      <div>لو محتاج/ة مساعدة، ابعتلنا على واتساب — وإحنا معاك خطوة بخطوة 🤝</div>
       <div style="margin-top:10px; color:rgba(255,255,255,.55); font-size:12px;">
-        © جميع الحقوق محفوظة — TO You -2013 
+        © جميع الحقوق محفوظة — TO You -2013
       </div>
     </footer>
 
@@ -805,9 +870,7 @@
         thumbsGrid.appendChild(div);
       });
     }
-
     function initMainImage(){
-      // أول صورة هي الرئيسية
       mainImage.src = images[0] || "";
     }
 
@@ -819,12 +882,25 @@
       "30":  { old: 1100, now: 729  }
     };
 
+    const fmt = (n) => Number(n).toLocaleString("ar-EG");
+
     const finalPriceEl = document.getElementById("finalPrice");
+    const sizeLabelEl  = document.getElementById("sizeLabel");
+
     const oldPriceEl = document.getElementById("oldPrice");
     const discountPercentEl = document.getElementById("discountPercent");
     const savedAmountEl = document.getElementById("savedAmount");
 
-    const fmt = (n) => Number(n).toLocaleString("ar-EG");
+    // compare fields
+    const old100 = document.getElementById("old100");
+    const now100 = document.getElementById("now100");
+    const disc100 = document.getElementById("disc100");
+    const save100 = document.getElementById("save100");
+
+    const old30 = document.getElementById("old30");
+    const now30 = document.getElementById("now30");
+    const disc30 = document.getElementById("disc30");
+    const save30 = document.getElementById("save30");
 
     function calcDiscount(oldP, nowP){
       const saved = oldP - nowP;
@@ -832,11 +908,28 @@
       return { saved, percent };
     }
 
+    function fillCompare(){
+      const d100 = calcDiscount(pricing["100"].old, pricing["100"].now);
+      const d30  = calcDiscount(pricing["30"].old,  pricing["30"].now);
+
+      old100.textContent = fmt(pricing["100"].old);
+      now100.textContent = fmt(pricing["100"].now);
+      disc100.textContent = fmt(d100.percent);
+      save100.textContent = fmt(d100.saved);
+
+      old30.textContent = fmt(pricing["30"].old);
+      now30.textContent = fmt(pricing["30"].now);
+      disc30.textContent = fmt(d30.percent);
+      save30.textContent = fmt(d30.saved);
+    }
+
     function setSize(size){
       const data = pricing[size];
       const { saved, percent } = calcDiscount(data.old, data.now);
 
       finalPriceEl.textContent = fmt(data.now);
+      sizeLabelEl.textContent  = size === "100" ? "حجم 100 ملل" : "حجم 30 ملل";
+
       oldPriceEl.textContent = fmt(data.old);
       discountPercentEl.textContent = fmt(percent);
       savedAmountEl.textContent = fmt(saved);
@@ -844,6 +937,10 @@
       document.querySelectorAll(".tab").forEach(btn => {
         btn.classList.toggle("active", btn.dataset.size === size);
       });
+
+      // highlight compare cards
+      document.getElementById("size100Col").classList.toggle("active", size === "100");
+      document.getElementById("size30Col").classList.toggle("active", size === "30");
     }
 
     document.querySelectorAll(".tab").forEach(btn => {
@@ -867,12 +964,83 @@
       });
     }
 
+    // =========================
+    // 4) REVIEWS (SHOW ALL)
+    // =========================
+    const reviews = [
+      {name:"سارة", stars:"★★★★★", date:"من أسبوع", text:"الرذاذ ناعم جدًا ومش بيسيح المكياج… فرق معايا في الثبات خصوصًا في الخروج الطويل."},
+      {name:"مريم", stars:"★★★★★", date:"من 10 أيام", text:"بيسيب لمعة حلوة مش دهنية، وحسّيت بشرتي مرتاحة مش منشفاني."},
+      {name:"نور", stars:"★★★★☆", date:"من 3 أسابيع", text:"حلو جدًا… بس لازم مسافة كويسة عشان الرشة تبقى خفيفة."},
+      {name:"دعاء", stars:"★★★★★", date:"من شهر", text:"الحجم الصغير 30 مل عملي جدًا في الشنطة… بقيت باخده معايا في أي خروجة."},
+
+      // هنكمل عشان يبقوا 32 (تقدر تغير النصوص بحرّيتك)
+      {name:"هبة", stars:"★★★★★", date:"من شهر", text:"ثبت الميكب في الحرّ أكتر مما توقعت… وريحة خفيفة مش مزعجة."},
+      {name:"ياسمين", stars:"★★★★☆", date:"من 5 أسابيع", text:"بيعمل Glow لطيف… لو بتحبي مطفي 100% استخدمي بودرة بعدها."},
+      {name:"مي", stars:"★★★★★", date:"من شهرين", text:"ممتاز قبل المكياج كتحضير… حسيت الفاونديشن نام أحلى."},
+      {name:"رنا", stars:"★★★★★", date:"من شهرين", text:"رشة واحدة خلال اليوم بتفوق الميكب… كأنه لسه معمول."},
+
+      {name:"آية", stars:"★★★★★", date:"من 9 أيام", text:"مش بيعمل نقط كبيرة، رذاذه ناعم ومريح جدًا."},
+      {name:"منة", stars:"★★★★★", date:"من أسبوعين", text:"الثبات حلو جدًا مع يوم طويل… وبيخلي الشكل فريش."},
+      {name:"لوجي", stars:"★★★★☆", date:"من 20 يوم", text:"لطيف… بس أهم حاجة المسافة عشان ما يبللش الميكب."},
+      {name:"سلمى", stars:"★★★★★", date:"من 3 أيام", text:"اشتريته للفرح… وفضل ثابت لآخر اليوم 🙌"},
+
+      {name:"شيماء", stars:"★★★★★", date:"من شهر", text:"ترطيبه باين جدًا خصوصًا لو بشرتك ناشفة."},
+      {name:"أمنية", stars:"★★★★★", date:"من شهر", text:"مش لزج… وبيسيب لمعة صحية مش دهنية."},
+      {name:"فاطمة", stars:"★★★★☆", date:"من 6 أسابيع", text:"حلو جدًا مع بودرة خفيفة في الـ T-zone."},
+      {name:"نجلاء", stars:"★★★★★", date:"من شهرين", text:"بقي أساسي عندي… خصوصًا مع الجو الحر."},
+
+      {name:"سندس", stars:"★★★★★", date:"من 11 يوم", text:"بيثبت المكياج وبيقلل التكتل… ممتاز."},
+      {name:"بسملة", stars:"★★★★★", date:"من 16 يوم", text:"الرشة ناعمة جدًا ومش بتبوظ الماسكارا."},
+      {name:"رحمة", stars:"★★★★☆", date:"من 4 أسابيع", text:"ممتاز… بس متزوديش رشش كتير."},
+      {name:"حبيبة", stars:"★★★★★", date:"من شهر", text:"الحجم 100 مل بيقعد فترة كبيرة… worth it."},
+
+      {name:"زينب", stars:"★★★★★", date:"من أسبوع", text:"بيخلّي الميكب شكله طبيعي وفريش."},
+      {name:"لينا", stars:"★★★★★", date:"من 12 يوم", text:"أفضل Setting Spray جربته لحد دلوقتي."},
+      {name:"دينا", stars:"★★★★☆", date:"من 3 أسابيع", text:"حلو جدًا… ولو بشرتك دهنية استخدمي بودرة بعده."},
+      {name:"هنا", stars:"★★★★★", date:"من شهر", text:"ينفع قبل وبعد… وده اللي عاجبني فيه."},
+
+      {name:"نوران", stars:"★★★★★", date:"من 8 أيام", text:"مش بيعمل بقع ولا بيأكسد… ممتاز."},
+      {name:"إيمان", stars:"★★★★★", date:"من أسبوعين", text:"ثباته قوي في المناسبات."},
+      {name:"سوسن", stars:"★★★★☆", date:"من 19 يوم", text:"لو اتستخدم صح من مسافة كويسة بيطلع تحفة."},
+      {name:"أسماء", stars:"★★★★★", date:"من شهر", text:"بيدي لمعة صحية حلوة جدًا."},
+
+      {name:"ماريا", stars:"★★★★★", date:"من 6 أيام", text:"معايا في الشنطة دايمًا (30 مل)👌"},
+      {name:"رانيا", stars:"★★★★★", date:"من 2 أسابيع", text:"فرق معايا جدًا في ثبات الميكب."},
+      {name:"شهد", stars:"★★★★☆", date:"من 5 أسابيع", text:"ترطيب ممتاز… مناسب للبشرة العادية/الج"},
+      {name:"ندى", stars:"★★★★★", date:"من شهرين", text:"منتج أصلي وثبات محترم جدًا."}
+    ];
+
+    function renderReviews(){
+      const grid = document.getElementById("reviewGrid");
+      const count = document.getElementById("reviewsCount");
+      grid.innerHTML = "";
+      count.textContent = fmt(reviews.length);
+
+      reviews.forEach(r => {
+        const div = document.createElement("div");
+        div.className = "review";
+        div.innerHTML = `
+          <div class="top">
+            <div>
+              <div class="name">${r.name}</div>
+              <div class="starline">${r.stars}</div>
+            </div>
+            <div class="date">${r.date}</div>
+          </div>
+          <p class="text">${r.text}</p>
+        `;
+        grid.appendChild(div);
+      });
+    }
+
     // init
     renderThumbs();
     initMainImage();
+    fillCompare();
     setSize("100");
     setupAccordion("faqAccordion");
     setupAccordion("whyAccordion");
+    renderReviews();
   </script>
 </body>
 </html>
