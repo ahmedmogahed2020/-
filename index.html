@@ -1,0 +1,878 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>بخاخ ميست & فيكس مرطب مثبت للمكياج 24 ساعة | MAKE UP FOR EVER</title>
+  <style>
+    :root{
+      --bg:#0b0b10;
+      --card:#12121a;
+      --card2:#0f0f16;
+      --text:#f4f4f7;
+      --muted:#b9b9c7;
+      --line:rgba(255,255,255,.08);
+      --gold1:#d6b46a;
+      --gold2:#f6e29d;
+      --gold3:#b8892d;
+      --ok:#2fe08a;
+      --danger:#ff4d6d;
+      --shadow: 0 18px 60px rgba(0,0,0,.45);
+      --radius: 18px;
+    }
+
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family: system-ui, -apple-system, "Segoe UI", Tahoma, Arial;
+      background:
+        radial-gradient(1200px 700px at 80% -10%, rgba(214,180,106,.20), transparent 55%),
+        radial-gradient(900px 500px at 10% 20%, rgba(118,92,255,.16), transparent 60%),
+        radial-gradient(700px 500px at 70% 90%, rgba(47,224,138,.10), transparent 55%),
+        var(--bg);
+      color:var(--text);
+      line-height:1.6;
+    }
+
+    a{color:inherit; text-decoration:none}
+    .container{max-width:1120px; margin:0 auto; padding:28px 16px 80px;}
+    .topbar{
+      display:flex; align-items:center; justify-content:space-between;
+      gap:12px; padding:10px 14px;
+      border:1px solid var(--line); border-radius:999px;
+      background:rgba(18,18,26,.55);
+      backdrop-filter: blur(10px);
+    }
+    .brand{
+      display:flex; align-items:center; gap:10px; font-weight:800; letter-spacing:.2px;
+    }
+    .brand-badge{
+      width:34px; height:34px; border-radius:12px;
+      background: linear-gradient(135deg, rgba(214,180,106,.85), rgba(246,226,157,.85));
+      box-shadow: 0 10px 30px rgba(214,180,106,.22);
+    }
+    .pill{
+      border:1px solid var(--line);
+      padding:8px 12px; border-radius:999px;
+      color:var(--muted); font-size:13px;
+      display:flex; align-items:center; gap:8px;
+      background: rgba(15,15,22,.35);
+    }
+    .pill b{color:var(--text)}
+    .grid{
+      display:grid;
+      grid-template-columns: 1.05fr .95fr;
+      gap:18px;
+      margin-top:18px;
+    }
+    @media (max-width: 980px){
+      .grid{grid-template-columns: 1fr; }
+    }
+
+    .card{
+      background: linear-gradient(180deg, rgba(18,18,26,.92), rgba(15,15,22,.92));
+      border:1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      overflow:hidden;
+    }
+
+    .pad{padding:18px}
+    h1{
+      margin:10px 0 6px;
+      font-size: clamp(22px, 2.4vw, 34px);
+      line-height:1.25;
+      letter-spacing:.2px;
+    }
+    .subtitle{color:var(--muted); margin:0 0 12px; font-size:14px}
+    .divider{height:1px; background:var(--line); margin:14px 0;}
+
+    /* Gallery */
+    .gallery-wrap{padding:16px}
+    .main-img{
+      width:100%; aspect-ratio: 4/3;
+      border-radius: 16px;
+      background: rgba(255,255,255,.03);
+      border:1px solid var(--line);
+      display:flex; align-items:center; justify-content:center;
+      overflow:hidden;
+      position:relative;
+    }
+    .main-img img{
+      width:100%; height:100%; object-fit:cover;
+      display:block;
+    }
+    .main-img .hint{
+      position:absolute; bottom:10px; left:10px;
+      background: rgba(0,0,0,.45);
+      border:1px solid rgba(255,255,255,.12);
+      color: rgba(255,255,255,.85);
+      padding:8px 10px; border-radius: 12px;
+      font-size: 12px;
+      backdrop-filter: blur(8px);
+    }
+
+    .thumbs{
+      margin-top:12px;
+      display:grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap:10px;
+    }
+    @media (max-width: 560px){
+      .thumbs{grid-template-columns: repeat(4, 1fr);}
+    }
+    .thumb{
+      aspect-ratio: 1/1;
+      border-radius: 14px;
+      overflow:hidden;
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.03);
+      cursor:pointer;
+      position:relative;
+      transition: transform .18s ease, border-color .18s ease;
+    }
+    .thumb:hover{transform: translateY(-2px); border-color: rgba(214,180,106,.45)}
+    .thumb.active{border-color: rgba(214,180,106,.85); box-shadow: 0 10px 25px rgba(214,180,106,.12);}
+    .thumb img{width:100%; height:100%; object-fit:cover; display:block;}
+
+    /* Golden Price Card */
+    .price-card{
+      margin-top:14px;
+      background: linear-gradient(135deg, rgba(214,180,106,.22), rgba(246,226,157,.10));
+      border:1px solid rgba(214,180,106,.35);
+      border-radius: 18px;
+      overflow:hidden;
+      position:relative;
+    }
+    .price-card::before{
+      content:"";
+      position:absolute; inset:-1px;
+      background: radial-gradient(900px 320px at 20% 0%, rgba(246,226,157,.22), transparent 60%);
+      pointer-events:none;
+    }
+    .price-inner{position:relative; padding:16px}
+    .row{display:flex; align-items:center; justify-content:space-between; gap:12px; flex-wrap:wrap;}
+    .size-tabs{
+      display:flex; gap:10px; flex-wrap:wrap;
+      background: rgba(0,0,0,.25);
+      border:1px solid rgba(255,255,255,.10);
+      padding:8px; border-radius: 999px;
+    }
+    .tab{
+      padding:10px 14px;
+      border-radius: 999px;
+      border:1px solid transparent;
+      background: transparent;
+      color: rgba(255,255,255,.85);
+      cursor:pointer;
+      font-weight:700;
+      transition:.18s ease;
+    }
+    .tab.active{
+      background: linear-gradient(135deg, rgba(214,180,106,.80), rgba(246,226,157,.75));
+      color:#131016;
+      border-color: rgba(214,180,106,.45);
+      box-shadow: 0 10px 25px rgba(214,180,106,.18);
+    }
+    .price{
+      display:flex; align-items:baseline; gap:10px;
+      font-weight:900;
+      font-size: 26px;
+      letter-spacing:.2px;
+    }
+    .price small{font-size:13px; font-weight:700; color: rgba(255,255,255,.78)}
+    .strike{
+      color: rgba(255,255,255,.55);
+      text-decoration: line-through;
+      font-weight:700;
+      font-size: 14px;
+    }
+    .badges{display:flex; gap:8px; flex-wrap:wrap; margin-top:10px}
+    .badge{
+      font-size:12px; font-weight:800;
+      padding:8px 10px;
+      border-radius: 999px;
+      border:1px solid rgba(255,255,255,.10);
+      background: rgba(0,0,0,.24);
+      color: rgba(255,255,255,.9);
+      display:flex; align-items:center; gap:8px;
+    }
+    .badge.gold{
+      border-color: rgba(214,180,106,.45);
+      background: rgba(214,180,106,.14);
+    }
+    .badge.ok{
+      border-color: rgba(47,224,138,.35);
+      background: rgba(47,224,138,.10);
+      color: rgba(240,255,248,.92);
+    }
+    .cta{
+      margin-top:12px;
+      display:flex; gap:10px; flex-wrap:wrap;
+    }
+    .btn{
+      border:none; cursor:pointer;
+      padding:12px 14px;
+      border-radius: 14px;
+      font-weight:900;
+      letter-spacing:.2px;
+      transition: transform .15s ease, filter .15s ease;
+    }
+    .btn:hover{transform: translateY(-1px); filter:brightness(1.05)}
+    .btn.primary{
+      background: linear-gradient(135deg, rgba(214,180,106,.92), rgba(246,226,157,.92));
+      color:#131016;
+      min-width: 220px;
+    }
+    .btn.ghost{
+      background: rgba(255,255,255,.04);
+      border:1px solid rgba(255,255,255,.12);
+      color: rgba(255,255,255,.88);
+    }
+
+    /* Right column sections */
+    .section-title{
+      font-size:18px;
+      margin:0 0 10px;
+      letter-spacing:.2px;
+      display:flex; align-items:center; justify-content:space-between; gap:12px;
+    }
+    .muted{color:var(--muted); font-size:14px; margin:0}
+    .bullets{
+      margin:12px 0 0; padding:0 18px 0 0;
+      color: rgba(255,255,255,.88);
+    }
+    .bullets li{margin:6px 0}
+    .note{
+      margin-top:12px;
+      padding:12px 12px;
+      border-radius: 14px;
+      border:1px dashed rgba(214,180,106,.35);
+      background: rgba(214,180,106,.08);
+      color: rgba(255,255,255,.88);
+      font-size: 13px;
+    }
+
+    /* Lists as cards */
+    .cards{
+      display:grid;
+      grid-template-columns: 1fr;
+      gap:10px;
+    }
+    .mini-card{
+      border:1px solid var(--line);
+      border-radius: 16px;
+      background: rgba(255,255,255,.03);
+      padding:12px;
+    }
+    .mini-card b{display:block; margin-bottom:4px}
+    .mini-card p{margin:0; color:rgba(255,255,255,.85); font-size:14px}
+
+    /* Reviews */
+    .reviews-head{
+      display:flex; align-items:center; justify-content:space-between; gap:10px; flex-wrap:wrap;
+    }
+    .stars{
+      display:flex; align-items:center; gap:8px; flex-wrap:wrap;
+    }
+    .star{
+      color: rgba(246,226,157,.95);
+      letter-spacing: 1px;
+      font-size: 14px;
+    }
+    .count{
+      color: rgba(255,255,255,.80);
+      font-weight:800;
+      font-size: 13px;
+      padding:6px 10px;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,.12);
+      background: rgba(0,0,0,.22);
+    }
+    .review-grid{
+      display:grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap:10px;
+      margin-top:12px;
+    }
+    @media (max-width: 720px){
+      .review-grid{grid-template-columns:1fr;}
+    }
+    .review{
+      border:1px solid var(--line);
+      border-radius: 16px;
+      background: rgba(255,255,255,.03);
+      padding:12px;
+    }
+    .review .top{
+      display:flex; align-items:center; justify-content:space-between; gap:10px;
+      margin-bottom:8px;
+    }
+    .review .name{font-weight:900}
+    .review .date{color: rgba(255,255,255,.55); font-size: 12px}
+    .review .text{margin:0; color: rgba(255,255,255,.85); font-size: 14px}
+    .review .starline{color: rgba(246,226,157,.95); font-size: 12px; letter-spacing:1px}
+
+    /* Accordion */
+    .accordion{display:flex; flex-direction:column; gap:10px; margin-top:12px;}
+    .acc-item{
+      border:1px solid var(--line);
+      border-radius: 16px;
+      background: rgba(255,255,255,.03);
+      overflow:hidden;
+    }
+    .acc-btn{
+      width:100%;
+      background: transparent;
+      border:none;
+      color: rgba(255,255,255,.92);
+      padding:14px 14px;
+      cursor:pointer;
+      display:flex; align-items:center; justify-content:space-between; gap:12px;
+      font-weight:900;
+      font-size: 14px;
+      text-align:right;
+    }
+    .acc-icon{
+      width:30px; height:30px;
+      border-radius: 12px;
+      display:flex; align-items:center; justify-content:center;
+      background: rgba(0,0,0,.22);
+      border:1px solid rgba(255,255,255,.10);
+      font-size: 16px;
+      flex: 0 0 auto;
+    }
+    .acc-panel{
+      padding:0 14px 14px;
+      color: rgba(255,255,255,.82);
+      font-size: 14px;
+      display:none;
+    }
+    .acc-item.open .acc-panel{display:block;}
+    .acc-item.open .acc-icon{background: rgba(214,180,106,.16); border-color: rgba(214,180,106,.35);}
+
+    /* Footer */
+    footer{
+      margin-top:18px;
+      border:1px solid var(--line);
+      border-radius: var(--radius);
+      background: rgba(18,18,26,.55);
+      padding:18px;
+      color: rgba(255,255,255,.78);
+      text-align:center;
+    }
+
+    .kicker{
+      display:inline-flex; align-items:center; gap:8px;
+      padding:8px 12px;
+      border-radius:999px;
+      border:1px solid rgba(214,180,106,.28);
+      background: rgba(214,180,106,.10);
+      color: rgba(255,255,255,.90);
+      font-size: 12px;
+      font-weight:800;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="topbar">
+      <div class="brand">
+        <div class="brand-badge"></div>
+        <div>
+          <div style="font-weight:900">Center To You</div>
+    
+        </div>
+      </div>
+      <div class="pill">
+        <span>✨</span>
+        <span>توصيل سريع • <b>دفع آمن</b> • دعم واتساب</span>
+      </div>
+    </div>
+
+    <div class="grid">
+
+      <!-- LEFT: Gallery + Price -->
+      <div class="card">
+        <div class="gallery-wrap">
+          <span class="kicker">MAKE UP FOR EVER • Mist & Fix</span>
+          <h1>بخاخ ميست & فيكس مرطب مثبت للمكياج 24 ساعة</h1>
+          <p class="subtitle">Hydrating Setting Spray • تثبيت + ترطيب + انتعاش في رشة واحدة</p>
+
+          <!-- Main Image -->
+          <div class="main-img">
+            <img id="mainImage" src="" alt="Mist & Fix Product"/>
+            <div class="hint">اضغطي على الصور الصغيرة لتبديل الصورة 👇</div>
+          </div>
+
+          <!-- Thumbnails Grid -->
+          <div class="thumbs" id="thumbsGrid"></div>
+
+          <!-- Golden Price Card (Under images directly) -->
+          <div class="price-card">
+            <div class="price-inner">
+              <div class="row">
+                <div>
+                 
+                </div>
+
+            <div class="price-box">
+
+  <!-- السعر الكبير (على حسب التاب المختار) -->
+  <div class="price">
+    <span id="finalPrice">0</span>
+    <small id="sizeLabel">حجم 100 ملل</small>
+  </div>
+
+  <!-- جدول الحجمين (جنب بعض) -->
+  <div class="sizes-compare">
+
+    <div class="size-col" id="size100Col">
+      <div class="size-head">حجم 100 ملل</div>
+      <div class="size-line">
+        <span class="lbl">قبل الخصم</span>
+        <span class="val" id="old100">1600</span>
+      </div>
+      <div class="size-line">
+        <span class="lbl">بعد الخصم</span>
+        <span class="val" id="now100">1379</span>
+      </div>
+    </div>
+
+    <div class="size-col" id="size30Col">
+      <div class="size-head">حجم 30 ملل</div>
+      <div class="size-line">
+        <span class="lbl">قبل الخصم</span>
+        <span class="val" id="old30">1100</span>
+      </div>
+      <div class="size-line">
+        <span class="lbl">بعد الخصم</span>
+        <span class="val" id="now30">729</span>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- سطر التوفير والخصم (بيفضل شغال حسب التاب المختار) -->
+  <div class="row" style="justify-content:flex-start; gap:10px; margin-top:10px">
+    <div class="strike">قبل: <span id="oldPrice">0</span> جنيه</div>
+    <div class="badge gold">خصم <span id="discountPercent">0</span>%</div>
+    <div class="badge">وفّرت <span id="savedAmount">0</span> جنيه</div>
+  </div>
+
+</div>
+
+
+              <div class="badges">
+                <div class="badge ok">✅ ضمان أصالة 100%</div>
+                <div class="badge gold">✨ Micro-Fine Mist</div>
+                <div class="badge">💧 ترطيب + لمعة صحية</div>
+                <div class="badge">🕒 ثبات طويل</div>
+              </div>
+
+            
+                <button class="btn ghost" type="button" onclick="document.getElementById('reviews').scrollIntoView({behavior:'smooth'})">
+                  شوفي تقييمات العملاء
+                </button>
+              </div>
+
+              <div class="note">
+                ⭐ نصيحة: رشة خفيفة من مسافة 20–25 سم بتدي أفضل نتيجة من غير ما تبلّل المكياج.
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- RIGHT: Content -->
+      <div class="card">
+        <div class="pad">
+          <div class="section-title">
+            <span>الوصف</span>
+          </div>
+          <p class="muted">
+            بخاخ تثبيت مرطّب بملمس خفيف جدًا، بيشتغل كـ <b>ترطيب + تثبيت + إنعاش</b> في نفس الوقت.
+            مثالي لو عايزة ميكب ثابت وشكله فريش ومش متكتّل… خصوصًا مع يوم طويل أو مناسبة.
+          </p>
+
+          <ul class="bullets">
+            <li><b>يثبّت المكياج</b> ويساعد يقلل التلطّخ والبهتان.</li>
+            <li><b>يرطّب</b> ويدي راحة للبشرة ومظهر جلوي طبيعي.</li>
+            <li><b>رذاذ Micro-fine</b> ناعم جدًا وتوزيعه متساوي.</li>
+            <li>ينفع قبل المكياج (Prep) وبعده (Set) وخلال اليوم (Refresh).</li>
+          </ul>
+
+          <div class="divider"></div>
+
+          <div class="section-title">
+            <span>طريقة الاستخدام</span>
+          </div>
+          <div class="cards">
+            <div class="mini-card">
+              <b>بعد المكياج</b>
+              <p>امسكي البخاخ على بعد 20–25 سم، اغمضي عينك، ورشي رشتين لـ 4 رِشّات خفاف على وشك كله.</p>
+            </div>
+            <div class="mini-card">
+              <b>قبل المكياج (اختياري)</b>
+              <p>رشة خفيفة قبل الفاونديشن تساعد البشرة تبان أنعم والمكياج يقعد أحلى.</p>
+            </div>
+            <div class="mini-card">
+              <b>خلال اليوم</b>
+              <p>لو حسّيتي وشك محتاج Refresh… رشة واحدة ترجع الفريش لوك بدون ما تبوّظ المكياج.</p>
+            </div>
+          </div>
+
+          <div class="divider"></div>
+
+          <div class="section-title">
+            <span>نصائح استخدام سريعة</span>
+          </div>
+          <ul class="bullets">
+            <li>متقربيش البخاخ قوي عشان الرذاذ يفضل ناعم ومتساوي.</li>
+            <li>لو بشرتك دهنية جدًا، ممكن تستخدميه + بودرة خفيفة في الـ T-zone.</li>
+            <li>استخدميه بعد الرموش/الماسكارا عشان تتفادي أي لطخة.</li>
+          </ul>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- Reviews -->
+    <div class="card" id="reviews" style="margin-top:18px;">
+      <div class="pad">
+        <div class="reviews-head">
+          <div>
+            <div class="section-title" style="margin-bottom:6px;">
+              <span>تقييمات العملاء</span>
+            </div>
+            <div class="stars">
+              <span class="star">★★★★★</span>
+              <span style="color:var(--muted); font-size:13px;">متوسط 4.8</span>
+              <span class="count">32</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- خليت التقييمات كتير وظاهرة -->
+        <div class="review-grid">
+          <div class="review">
+            <div class="top">
+              <div>
+                <div class="name">سارة</div>
+                <div class="starline">★★★★★</div>
+              </div>
+              <div class="date">من أسبوع</div>
+            </div>
+            <p class="text">الرذاذ ناعم جدًا ومش بيسيح المكياج… فرق معايا في الثبات خصوصًا في الخروج الطويل.</p>
+          </div>
+
+          <div class="review">
+            <div class="top">
+              <div>
+                <div class="name">مريم</div>
+                <div class="starline">★★★★★</div>
+              </div>
+              <div class="date">من 10 أيام</div>
+            </div>
+            <p class="text">بيسيب لمعة حلوة مش دهنية، وحسّيت بشرتي مرتاحة مش منشفاني.</p>
+          </div>
+
+          <div class="review">
+            <div class="top">
+              <div>
+                <div class="name">نور</div>
+                <div class="starline">★★★★☆</div>
+              </div>
+              <div class="date">من 3 أسابيع</div>
+            </div>
+            <p class="text">حلو جدًا… بس لازم مسافة كويسة عشان الرشة تبقى خفيفة.</p>
+          </div>
+
+          <div class="review">
+            <div class="top">
+              <div>
+                <div class="name">دعاء</div>
+                <div class="starline">★★★★★</div>
+              </div>
+              <div class="date">من شهر</div>
+            </div>
+            <p class="text">الحجم الصغير 30 مل عملي جدًا في الشنطة… بقيت باخده معايا في أي خروجة.</p>
+          </div>
+
+          <div class="review">
+            <div class="top">
+              <div>
+                <div class="name">هبة</div>
+                <div class="starline">★★★★★</div>
+              </div>
+              <div class="date">من شهر</div>
+            </div>
+            <p class="text">ثبت الميكب في الحرّ أكتر مما توقعت… وريحة خفيفة مش مزعجة.</p>
+          </div>
+
+          <div class="review">
+            <div class="top">
+              <div>
+                <div class="name">ياسمين</div>
+                <div class="starline">★★★★☆</div>
+              </div>
+              <div class="date">من 5 أسابيع</div>
+            </div>
+            <p class="text">بيعمل Glow لطيف… لو بتحبي مطفي 100% استخدمي بودرة بعدها.</p>
+          </div>
+
+          <div class="review">
+            <div class="top">
+              <div>
+                <div class="name">مي</div>
+                <div class="starline">★★★★★</div>
+              </div>
+              <div class="date">من شهرين</div>
+            </div>
+            <p class="text">ممتاز قبل المكياج كتحضير… حسيت الفاونديشن نام أحلى على البشرة.</p>
+          </div>
+
+          <div class="review">
+            <div class="top">
+              <div>
+                <div class="name">رنا</div>
+                <div class="starline">★★★★★</div>
+              </div>
+              <div class="date">من شهرين</div>
+            </div>
+            <p class="text">رشة واحدة خلال اليوم بتفوق الميكب… كأنه لسه معمول.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- FAQ -->
+    <div class="card" style="margin-top:18px;">
+      <div class="pad">
+        <div class="section-title">
+          <span>أسئلة شائعة</span>
+        </div>
+
+        <div class="accordion" id="faqAccordion">
+          <div class="acc-item">
+            <button class="acc-btn" type="button">
+              <span>هل مناسب لكل أنواع البشرة؟</span>
+              <span class="acc-icon">+</span>
+            </button>
+            <div class="acc-panel">
+              مناسب لمعظم أنواع البشرة، وخصوصًا اللي بتحب <b>ترطيب ولمعة صحية</b>. لو بشرتك دهنية جدًا، استخدميه مع بودرة خفيفة في الـ T-zone.
+            </div>
+          </div>
+
+          <div class="acc-item">
+            <button class="acc-btn" type="button">
+              <span>أستخدمه قبل ولا بعد المكياج؟</span>
+              <span class="acc-icon">+</span>
+            </button>
+            <div class="acc-panel">
+              الاتنين! قبل المكياج لتحضير البشرة، وبعد المكياج للتثبيت، وكمان خلال اليوم للـ Refresh.
+            </div>
+          </div>
+
+          <div class="acc-item">
+            <button class="acc-btn" type="button">
+              <span>هل بيسيح الفاونديشن أو يعمل بقع؟</span>
+              <span class="acc-icon">+</span>
+            </button>
+            <div class="acc-panel">
+              لو اتستخدم من مسافة <b>20–25 سم</b> وبرشّات خفيفة، الرذاذ بيكون ناعم جدًا ومش بيعمل بقع.
+            </div>
+          </div>
+
+          <div class="acc-item">
+            <button class="acc-btn" type="button">
+              <span>ايه الفرق بين 30 مل و 100 مل؟</span>
+              <span class="acc-icon">+</span>
+            </button>
+            <div class="acc-panel">
+              نفس المنتج ونفس الأداء—الفرق في الحجم: <b>30 مل</b> للسفر والشنطة، و<b>100 مل</b> للاستخدام اليومي في البيت.
+            </div>
+          </div>
+
+          <div class="acc-item">
+            <button class="acc-btn" type="button">
+              <span>أعرف إزاي إنه أصلي؟</span>
+              <span class="acc-icon">+</span>
+            </button>
+            <div class="acc-panel">
+              إحنا بنقدّم <b>ضمان أصالة 100%</b>، وكمان تقدر/ي تراجع/ي بيانات العبوة والباركود عند الاستلام.
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Why buy -->
+    <div class="card" style="margin-top:18px;">
+      <div class="pad">
+        <div class="section-title">
+          <span>ليه تشتري من متجرنا؟</span>
+        </div>
+
+        <div class="accordion" id="whyAccordion">
+          <div class="acc-item">
+            <button class="acc-btn" type="button">
+              <span>✅ ضمان أصالة 100%</span>
+              <span class="acc-icon">+</span>
+            </button>
+            <div class="acc-panel">
+              بنضمن إن المنتج أصلي—ولو في أي مشكلة في الأصالة، ليك حق الاسترجاع وفق سياسة المتجر.
+            </div>
+          </div>
+
+          <div class="acc-item">
+            <button class="acc-btn" type="button">
+              <span>🚚 شحن سريع وتغليف محترم</span>
+              <span class="acc-icon">+</span>
+            </button>
+            <div class="acc-panel">
+              بنهتم بالتغليف عشان المنتج يوصل لك سليم—ومتابعة لحد باب البيت.
+            </div>
+          </div>
+
+          <div class="acc-item">
+            <button class="acc-btn" type="button">
+              <span>💬 دعم سريع على الواتساب</span>
+              <span class="acc-icon">+</span>
+            </button>
+            <div class="acc-panel">
+              لو محتاج/ة مساعدة في اختيار الحجم أو طريقة الاستخدام، فريقنا بيرد بسرعة.
+            </div>
+          </div>
+
+          <div class="acc-item">
+            <button class="acc-btn" type="button">
+              <span>💳 خيارات دفع آمنة</span>
+              <span class="acc-icon">+</span>
+            </button>
+            <div class="acc-panel">
+              اختار/ي الطريقة الأنسب لك، وبياناتك في أمان.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+      <div style="font-weight:900; margin-bottom:6px;">Center To You</div>
+      <div>لو محتاجة مساعدة، ابعتلنا على واتساب — وإحنا معاك خطوة بخطوة 🤝</div>
+      <div style="margin-top:10px; color:rgba(255,255,255,.55); font-size:12px;">
+        © جميع الحقوق محفوظة — TO You -2013 
+      </div>
+    </footer>
+
+  </div>
+
+  <script>
+    // =========================
+    // 1) GALLERY (9 IMAGES)
+    // =========================
+    const images = [
+      "https://i.postimg.cc/BQCxjNJP/photo_٢٠٢٦_٠١_٣٠_١٨_٥٦_٤٥.jpg",
+      "https://i.postimg.cc/vHvW4XGn/photo_٢٠٢٦_٠١_٣٠_١٨_٥٦_٤٦.jpg",
+      "https://i.postimg.cc/ZKLrWjJd/photo_٢٠٢٦_٠١_٣٠_١٨_٥٦_٤٦_(2).jpg",
+      "https://i.postimg.cc/gkKvx4G8/photo_٢٠٢٦_٠١_٣٠_١٨_٥٧_٠٦.jpg",
+      "https://i.postimg.cc/9FBGD1cb/photo_٢٠٢٦_٠١_٣٠_١٨_٥٧_٠٧.jpg",
+      "https://i.postimg.cc/Jz4jZJhQ/photo_٢٠٢٦_٠١_٣٠_١٩_٠٦_١٤.jpg",
+      "https://i.postimg.cc/Z5K6p3qx/photo_٢٠٢٦_٠١_٣٠_١٩_٠٦_١٣.jpg",
+      "https://i.postimg.cc/15Kp8Myj/photo_٢٠٢٦_٠١_٣٠_١٩_٠٦_١٢.jpg",
+      "https://i.postimg.cc/hP09XMK2/photo_٢٠٢٦_٠١_٣٠_١٩_٠٦_١١.jpg"
+    ];
+
+    const mainImage = document.getElementById("mainImage");
+    const thumbsGrid = document.getElementById("thumbsGrid");
+
+    function renderThumbs(){
+      thumbsGrid.innerHTML = "";
+      images.forEach((src, idx) => {
+        const div = document.createElement("div");
+        div.className = "thumb" + (idx === 0 ? " active" : "");
+        div.innerHTML = `<img src="${src}" alt="thumb ${idx+1}">`;
+        div.addEventListener("click", () => {
+          document.querySelectorAll(".thumb").forEach(t => t.classList.remove("active"));
+          div.classList.add("active");
+          mainImage.src = src;
+        });
+        thumbsGrid.appendChild(div);
+      });
+    }
+
+    function initMainImage(){
+      // أول صورة هي الرئيسية
+      mainImage.src = images[0] || "";
+    }
+
+    // =========================
+    // 2) PRICES + DISCOUNT (AUTO)
+    // =========================
+    const pricing = {
+      "100": { old: 1600, now: 1379 },
+      "30":  { old: 1100, now: 729  }
+    };
+
+    const finalPriceEl = document.getElementById("finalPrice");
+    const oldPriceEl = document.getElementById("oldPrice");
+    const discountPercentEl = document.getElementById("discountPercent");
+    const savedAmountEl = document.getElementById("savedAmount");
+
+    const fmt = (n) => Number(n).toLocaleString("ar-EG");
+
+    function calcDiscount(oldP, nowP){
+      const saved = oldP - nowP;
+      const percent = oldP ? Math.round((saved / oldP) * 100) : 0;
+      return { saved, percent };
+    }
+
+    function setSize(size){
+      const data = pricing[size];
+      const { saved, percent } = calcDiscount(data.old, data.now);
+
+      finalPriceEl.textContent = fmt(data.now);
+      oldPriceEl.textContent = fmt(data.old);
+      discountPercentEl.textContent = fmt(percent);
+      savedAmountEl.textContent = fmt(saved);
+
+      document.querySelectorAll(".tab").forEach(btn => {
+        btn.classList.toggle("active", btn.dataset.size === size);
+      });
+    }
+
+    document.querySelectorAll(".tab").forEach(btn => {
+      btn.addEventListener("click", () => setSize(btn.dataset.size));
+    });
+
+    // =========================
+    // 3) ACCORDION (+ / -)
+    // =========================
+    function setupAccordion(rootId){
+      const root = document.getElementById(rootId);
+      if(!root) return;
+
+      root.querySelectorAll(".acc-item").forEach(item => {
+        const btn = item.querySelector(".acc-btn");
+        const icon = item.querySelector(".acc-icon");
+        btn.addEventListener("click", () => {
+          const isOpen = item.classList.toggle("open");
+          icon.textContent = isOpen ? "-" : "+";
+        });
+      });
+    }
+
+    // init
+    renderThumbs();
+    initMainImage();
+    setSize("100");
+    setupAccordion("faqAccordion");
+    setupAccordion("whyAccordion");
+  </script>
+</body>
+</html>
